@@ -11,11 +11,10 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as users } from '@/routes/users';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { 
-    BookOpen, 
-    Folder, 
     LayoutGrid,
     ShoppingCart,
     Tags,
@@ -29,41 +28,33 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
+        group: 'Home',
     },
     {
         title: 'Orders',
         href: '#',
         icon: ShoppingCart,
+        group: 'Pages',
     },
     {
         title: 'Menu Items',
         href: '#',
         icon: Utensils,
+        group: 'Pages',
     },
     {
         title: 'Categories',
         href: '#',
         icon: Tags,
+        group: 'Pages',
     },
     {
         title: 'Users',
-        href: '#',
+        href: users(),
         icon: Users,
+        group: 'Pages',
     },
 ];
-
-// const footerNavItems: NavItem[] = [
-//     {
-//         title: 'Repository',
-//         href: 'https://github.com/laravel/react-starter-kit',
-//         icon: Folder,
-//     },
-//     {
-//         title: 'Documentation',
-//         href: 'https://laravel.com/docs/starter-kits#react',
-//         icon: BookOpen,
-//     },
-// ];
 
 export function AppSidebar() {
     return (
@@ -85,7 +76,6 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                {/* <NavFooter items={footerNavItems} className="mt-auto" /> */}
                 <NavUser />
             </SidebarFooter>
         </Sidebar>
